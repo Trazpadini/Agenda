@@ -14,5 +14,19 @@
     <ion-input type="text" [(ngModel)]="contato.telefone" placeholder="insira o seu telefone:">
     </ion-input>
   </ion-item>
+  
+  <ion-item>
+    <ion-label position="floating"> Email: </ion-label>
+    <ion-input type="text" [(ngModel)]="contato.email" placeholder="insira o seu email:">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Senha: </ion-label>
+    <ion-input type="text" [(ngModel)]="contato.senha" placeholder="insira uma senha:">
+    </ion-input>
+  </ion-item>
+
   <ion-button (click)="salvar()" expand="full" color="dark"> Salvar</ion-button>
-</ion-content>
+  <ion-button href="/" expand="full" color="dark"> Voltar </ion-button>
+  </ion-content>

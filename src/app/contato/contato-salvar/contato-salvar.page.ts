@@ -19,6 +19,6 @@ export class ContatoSalvarPage implements OnInit {
     this.fire.list('contato').push(this.contato);
     this.contato = new Contato();
     this.rota.navigate(['contato-lista']);
-    alert('Ahazei!');
+    alert('Você foi cadastrado com sucesso!');
   }
 }

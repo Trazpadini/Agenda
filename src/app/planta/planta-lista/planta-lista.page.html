@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>planta-lista</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let planta of plantalista | async">
+      <ion-label> {{ planta.popular }} </ion-label>
+      <ion-label> {{ planta.cientifico }} </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-button href="/" expand="full" color="dark"> Voltar </ion-button>
+</ion-content>

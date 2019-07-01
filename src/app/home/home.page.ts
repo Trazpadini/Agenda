@@ -11,6 +11,17 @@ export class HomePage {
   constructor(private rota: Router) { }
 
   direcionar() {
-    this.rota.navigate(['contato-salvar'])
+    this.rota.navigate(['contato-salvar']);
+  }
+  ir() {
+    this.rota.navigate(['planta-cadastro']);
+  }
+
+  logar() {
+    this.rota.navigate(['login-salvar']);
+
+  }
+  ir2() {
+    this.rota.navigate(['planta-lista']);
   }
 }
