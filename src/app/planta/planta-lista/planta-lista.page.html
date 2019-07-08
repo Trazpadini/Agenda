@@ -7,8 +7,18 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let planta of plantalista | async">
-      <ion-label> {{ planta.popular }} </ion-label>
-      <ion-label> {{ planta.cientifico }} </ion-label>
+
+      <ion-label>
+        {{ planta.popular }}
+      </ion-label>
+
+      <ion-label>
+        {{ planta.cientifico }}
+      </ion-label>
+
+      <ion-button (click)="foto()" expand="full" color="dark">
+        {{ planta.cientifico }}
+      </ion-button>
     </ion-item>
   </ion-list>
 

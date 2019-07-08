@@ -3,6 +3,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { Planta } from '../entidade/planta';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-planta-lista',
@@ -12,14 +13,18 @@ import { map } from 'rxjs/operators';
 export class PlantaListaPage implements OnInit {
 
   plantalista: Observable<Planta[]>;
-  constructor(private fire: AngularFireDatabase) {
+  constructor(private fire: AngularFireDatabase, private rota: Router) {
     this.plantalista = this.fire.list<Planta>('planta').snapshotChanges().pipe(
       map(lista => lista.map(linha => ({
         key: linha.payload.key, ...linha.payload.val()
       })))
     );
   }
-  ngOnInit() {
-  }
 
+  foto() {
+    this.rota.navigate(['planta-foto']);
+  }
+  ngOnInit() {
+
+  }
 }

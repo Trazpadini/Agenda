@@ -13,15 +13,9 @@ export class HomePage {
   direcionar() {
     this.rota.navigate(['contato-salvar']);
   }
-  ir() {
-    this.rota.navigate(['planta-cadastro']);
-  }
 
   logar() {
     this.rota.navigate(['login-salvar']);
 
-  }
-  ir2() {
-    this.rota.navigate(['planta-lista']);
   }
 }
