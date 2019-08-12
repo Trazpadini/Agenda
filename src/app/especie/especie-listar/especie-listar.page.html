@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>especie-listar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let contato of listaEspecies | async">
+      <ion-label> {{ especie.nome }} </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-button href="/" expand="full" color="dark"> Voltar </ion-button>
+</ion-content>

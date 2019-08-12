@@ -7,26 +7,41 @@
 <ion-content>
   <ion-item>
     <ion-label position="floating"> Nome: </ion-label>
-    <ion-input type="text" [(ngModel)]="contato.nome" placeholder="insira o seu nome:"></ion-input>
+    <ion-input type="text" [(ngModel)]="contato.nome" placeholder="insira o seu nome"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating"> Telefone: </ion-label>
-    <ion-input type="text" [(ngModel)]="contato.telefone" placeholder="insira o seu telefone:">
+    <ion-input type="text" [(ngModel)]="contato.telefone" placeholder="insira o seu telefone">
     </ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating"> Email: </ion-label>
-    <ion-input type="text" [(ngModel)]="contato.email" placeholder="insira o seu email:">
+    <ion-input type="text" [(ngModel)]="contato.email" placeholder="insira o seu email">
     </ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating"> Senha: </ion-label>
-    <ion-input type="text" [(ngModel)]="contato.senha" placeholder="insira uma senha:">
+    <ion-input type="password" [(ngModel)]="contato.senha" placeholder="insira uma senha">
     </ion-input>
   </ion-item>
 
+  <ion-item>
+    <ion-label position="floating"> Cidade: </ion-label>
+    <ion-input name="nome" [(ngModel)]="cidade.nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating"> Estado: </ion-label>
+    <ion-select [(ngModel)]="cidade.estado">
+      <ion-select-option *ngFor='let estado of listaEstado | async' [value]="estado">
+        {{estado.sigla}}
+      </ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
   <ion-button (click)="salvar()" expand="full" color="dark"> Salvar</ion-button>
   <ion-button href="/" expand="full" color="dark"> Voltar </ion-button>
-  </ion-content>
+</ion-content>
