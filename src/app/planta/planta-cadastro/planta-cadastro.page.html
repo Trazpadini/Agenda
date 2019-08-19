@@ -15,6 +15,13 @@
     <ion-input type="text" [(ngModel)]="planta.popular" placeholder="Insira o nome popular da planta:"></ion-input>
   </ion-item>
 
+  <ion-label position="floating">Espécie: </ion-label>
+  <ion-select [(ngModel)]="planta.especie">
+    <ion-select-option *ngFor='let especie of listaEspecie | async' [value]="especie">
+      {{especie.nome}}
+    </ion-select-option>
+  </ion-select>
+
   <ion-button (click)="salvar2()" expand="full" color="dark"> Salvar </ion-button>
-  <ion-button href="/" expand="full" color="dark"> Voltar </ion-button>
+  <ion-button href="perfil-tela" expand="full" color="dark"> Voltar </ion-button>
 </ion-content>

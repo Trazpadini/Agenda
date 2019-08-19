@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Login } from '../entidade/login';
 
@@ -9,9 +12,7 @@ import { Login } from '../entidade/login';
   styleUrls: ['./login-salvar.page.scss'],
 })
 export class LoginSalvarPage implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
+  ngOnInit() { }
 
   login: Login = new Login();
 

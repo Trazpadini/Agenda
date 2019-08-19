@@ -16,11 +16,12 @@
         {{ planta.cientifico }}
       </ion-label>
 
-      <ion-button (click)="foto()" expand="full" color="dark">
-        {{ planta.cientifico }}
-      </ion-button>
     </ion-item>
   </ion-list>
 
-  <ion-button href="/" expand="full" color="dark"> Voltar </ion-button>
+  <ion-select-option *ngFor='let estado of listaEspecie | async' [value]="especie">
+    {{especie.nome}}
+  </ion-select-option>
+
+  <ion-button href="perfil-tela" expand="full" color="dark"> Voltar </ion-button>
 </ion-content>
