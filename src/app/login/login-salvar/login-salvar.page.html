@@ -5,15 +5,29 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label position="floating"> Email: </ion-label>
-    <ion-input type="text" [(ngModel)]="login.email" placeholder="insira o seu email:">
-    </ion-input>
+  <form #grelin='ngForm'>
+    <ion-item>
+      <ion-label position="floating"> Email: </ion-label>
+      <ion-input #email='ngModel' type="text" [(ngModel)]="login.email" placeholder="insira o seu email:" required>
+      </ion-input>
+    </ion-item>
+
+    <span style='color:red' *ngIf="email.errors  && email.touched">
+      <ion-label> O email é obrigatório!</ion-label>
+    </span>
+
+    <ion-item>
       <ion-label position="floating"> Senha: </ion-label>
-    <ion-input type="password" [(ngModel)]="login.senha" placeholder="insira sua senha:">
-    </ion-input>
-    <ion-button (click)="logar()" expand="full" color="dark"> Entrar </ion-button>
+      <ion-input #senha='ngModel' type="password" [(ngModel)]="login.senha" placeholder="insira sua senha:" required>
+      </ion-input>
+    </ion-item>
+
+    <span style='color:red' *ngIf="senha.errors  && senha.touched">
+      <ion-label> A senha é obrigatória!</ion-label>
+    </span>
+  </form>
+    <ion-button [disabled]='!grelin.form.valid' (click)="logar()" expand="full" color="dark"> Entrar </ion-button>
     <ion-button href="/" expand="full" color="dark"> Voltar </ion-button>
-      <ion-img src="../../assets/imagem/14.jpg"></ion-img>
-  </ion-item>
+    <ion-img src="../../assets/imagem/14.jpg"></ion-img>
+
 </ion-content>
