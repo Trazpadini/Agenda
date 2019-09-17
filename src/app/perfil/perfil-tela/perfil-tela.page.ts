@@ -11,9 +11,6 @@ export class PerfilTelaPage implements OnInit {
   ir() {
     this.rota.navigate(['planta-cadastro']);
   }
-  ir2() {
-    this.rota.navigate(['planta-lista']);
-  }
   ngOnInit() {
   }
 

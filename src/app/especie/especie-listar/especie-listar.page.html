@@ -9,6 +9,10 @@
     <ion-item *ngFor="let contato of listaEspecies | async">
       <ion-label> {{ especie.nome }} </ion-label>
     </ion-item>
+
+    <ion-button expand="full" color="dark" (click)="excluir(especie.key)">
+    <ion-icon name="close-circle"></ion-icon> </ion-button>
+
   </ion-list>
   <ion-button href="/" expand="full" color="dark"> Voltar </ion-button>
 </ion-content>

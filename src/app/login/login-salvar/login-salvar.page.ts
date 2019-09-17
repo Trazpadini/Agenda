@@ -26,4 +26,10 @@ export class LoginSalvarPage implements OnInit {
     this.afAuth.auth.signOut();
     this.rota.navigate(['/']);
   }
+  
+  redefinir() {
+    this.afAuth.auth.sendPasswordResetEmail(this.login.email).then(
+      () => { this.rota.navigate(['home']); });
+    alert("Verifique seu Email")
+  }
 }

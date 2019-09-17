@@ -5,43 +5,59 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label position="floating"> Nome: </ion-label>
-    <ion-input type="text" [(ngModel)]="contato.nome" placeholder="insira o seu nome"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating"> Telefone: </ion-label>
-    <ion-input type="text" [(ngModel)]="contato.telefone" placeholder="insira o seu telefone">
-    </ion-input>
-  </ion-item>
+  <form #grelinho='ngForm'>
+    <ion-item>
+      <ion-label position="floating"> Nome: </ion-label>
+      <ion-input #nome='ngModel' type="text" [(ngModel)]="contato.nome" name='nome' placeholder="insira o seu nome" required></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating"> Email: </ion-label>
-    <ion-input type="text" [(ngModel)]="contato.email" placeholder="insira o seu email">
-    </ion-input>
-  </ion-item>
+    <span style='color:red' *ngIf="nome.errors && nome.touched">
+      <ion-label> O nome é obrigatório </ion-label>
+    </span>
 
-  <ion-item>
-    <ion-label position="floating"> Senha: </ion-label>
-    <ion-input type="password" [(ngModel)]="contato.senha" placeholder="insira uma senha">
-    </ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating"> Telefone: </ion-label>
+      <ion-input #telefone type="text" name="telefone" [(ngModel)]="contato.telefone" placeholder="insira o seu telefone" required></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label position="floating"> Cidade: </ion-label>
-    <ion-input name="nome" [(ngModel)]="cidade.nome"></ion-input>
-  </ion-item>
+    <span style='color:red' *ngIf="telefone.errors && telefone.touched">
+      <ion-label> Insira seu telefone </ion-label>
+    </span>
 
-  <ion-item>
-    <ion-label position="floating"> Estado: </ion-label>
-    <ion-select [(ngModel)]="cidade.estado">
-      <ion-select-option *ngFor='let estado of listaEstado | async' [value]="estado">
-        {{estado.sigla}}
-      </ion-select-option>
-    </ion-select>
-  </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="dark"> Email: </ion-label>
+      <ion-input #email='ngModel' type="text" [(ngModel)]="contato.email" name='email' placeholder="insira seu email" required></ion-input>
+    </ion-item>
+
+    <span style='color:red' *ngIf="email.errors && email.touched">
+      <ion-label> O email é obrigatório </ion-label>
+    </span>
+
+    <ion-item>
+      <ion-label position="floating" color="dark"> Senha: </ion-label>
+      <ion-input #senha='ngModel' type="password" name="senha" [(ngModel)]="contato.senha" placeholder="insira sua senha" required></ion-input>
+    </ion-item>
+
+    <span style='color:red' *ngIf="senha.errors && senha.touched">
+      <ion-label> A senha é obrigatório </ion-label>
+    </span>
+
+    <ion-item>
+      <ion-label position="floating"> Cidade: </ion-label>
+      <ion-input name="nomecid" [(ngModel)]="cidade.nomecid" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating"> Estado: </ion-label>
+      <ion-select [(ngModel)]="cidade.estado">
+        <ion-select-option *ngFor='let estado of listaEstado | async' [value]="estado">
+          {{estado.sigla}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </form>
 
 
-  <ion-button (click)="salvar()" expand="full" color="dark"> Salvar</ion-button>
+  <ion-button [disabled]='!grelinho.form.valid' (click)="salvar()" expand="full" color="dark"> Salvar</ion-button>
   <ion-button href="/" expand="full" color="dark"> Voltar </ion-button>
 </ion-content>

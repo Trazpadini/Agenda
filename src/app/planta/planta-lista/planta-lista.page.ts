@@ -4,8 +4,6 @@ import { Observable } from 'rxjs';
 import { Planta } from '../entidade/planta';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { Pipe, PipeTransform } from '@angular/core';
-
 
 @Component({
   selector: 'app-planta-lista',
@@ -13,20 +11,6 @@ import { Pipe, PipeTransform } from '@angular/core';
   styleUrls: ['./planta-lista.page.scss'],
 })
 
-@Pipe({
-  name: 'search',
-})
-export class SearchPipe implements PipeTransform {
-
-  transform(items: any[], terms: string): any[] {
-    if(!items) return [];
-    if(!terms) return items;
-    terms = terms.toLowerCase();
-    return items.filter( it => {
-      return it.name.toLowerCase().includes(terms);
-    });
-  }
-}
 export class PlantaListaPage implements OnInit {
 
   plantalista: Observable<Planta[]>;
@@ -38,9 +22,6 @@ export class PlantaListaPage implements OnInit {
     );
   }
 
-  foto() {
-    this.rota.navigate(['planta-foto']);
-  }
   ngOnInit() {
 
   }
